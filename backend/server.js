@@ -6,6 +6,9 @@ dotenv.config();
 
 const app = express();
 
+//middleware
+app.use(express.json());
+
 const PORT = process.env.PORT || 5001;
 
 async function initDB() {
@@ -26,8 +29,10 @@ async function initDB() {
   }
 }
 
-app.get("/", (req, res) => {
-  res.send("It's Working");
+app.post("/api/transactions", async (req, res) => {
+  try {
+    const { title, amount, categiry, user_id } = req.body;
+  } catch (error) {}
 });
 
 initDB().then(() => {
