@@ -1,10 +1,10 @@
 import { neon } from "@neondatabase/serverless";
-
 import "dotenv/config";
 
-// Creates a SQL connection using our DB URL
+// 1. Initialize the connection
 export const sql = neon(process.env.DATABASE_URL);
 
+// 2. Define the init function
 export async function initDB() {
   try {
     await sql`CREATE TABLE IF NOT EXISTS transactions(
@@ -19,6 +19,6 @@ export async function initDB() {
     console.log("Database initialized successfully");
   } catch (error) {
     console.log("Error initializing DB", error);
-    process.exit(1); // status code 1 means failure, 0 success
+    process.exit(1);
   }
 }

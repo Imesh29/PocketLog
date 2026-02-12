@@ -2,11 +2,10 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import express from "express";
-import { initDB } from "./config/db.js";
-import rateLimiter from "./middleware/rateLimiter.js";
-
-import transactionsRoute from "./routes/transactionsRoute.js";
-import job from "./config/cron.js";
+import { initDB } from "./src/config/db.js";
+import rateLimiter from "./src/middleware/rateLimiter.js";
+import transactionsRoute from "./src/routes/transactionsRoute.js";
+import job from "./src/config/cron.js";
 
 const app = express();
 
